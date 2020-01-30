@@ -1,5 +1,19 @@
+
+<% if @student.errors.any? %>
+    <ul>
+
+        <% @student.errors.full_messages.each do |message| %>
+
+            <li><%= message %></li>
+        
+        <% end %>
+
+    </ul>
+<% end %>
+
+
 <%= form_for @student do |f| %>
-    
+
     <%= f.label :first_name %>
     <%= f.text_field :first_name %><br/><br/>
 
