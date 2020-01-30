@@ -13,8 +13,18 @@ class StudentsController < ApplicationController
     end
 
     def create
-        @student = Student.create(student_params)
-        redirect_to student_path(@student)
+        @student = Student.new(student_params)
+
+        if @student.valid?
+
+            @student.save
+            redirect_to student_path(@student)\
+
+        else
+
+            render :new
+        
+        end
     end
 
     def edit
@@ -31,6 +41,7 @@ class StudentsController < ApplicationController
     def destroy
         @student = Student.find(params[:id])
         @student.destroy
+
         redirect_to students_path
     end
 
