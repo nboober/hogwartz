@@ -1,3 +1,5 @@
 <h1>Edit <%= @student.full_name %></h1>
 
 <%= render 'student_form' %>
+
+<button><%= link_to "Go Back to Student Page", student_path(@student) %></button>
